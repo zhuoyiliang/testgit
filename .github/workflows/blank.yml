@@ -13,4 +13,4 @@ jobs:
         run: |
           echo "Secret Value is stored but not displayed for security reasons."
           echo "You can use the Secret in your code."
-          echo "API_KEY=${{ secrets.PRODUCTION_API_KEY.YOUR }}"
+          echo "API_KEY=${{ secrets.SEC }}"
