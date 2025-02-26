@@ -6,7 +6,8 @@ on:
 jobs:
   view-secrets:
     runs-on: ubuntu-latest
-
+    environment: 
+      name: env1
     steps:
       - name: Print some environment variables
         run: |
