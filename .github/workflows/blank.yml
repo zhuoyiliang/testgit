@@ -1,16 +1,37 @@
-name: View Secrets
+name: Deploy Application
 
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Choose environment to deploy'
+        required: true
+        default: 'dev'
+        options:
+          - test
+          - dev
+          - pro
 
 jobs:
-  view-secrets:
+  deploy:
     runs-on: ubuntu-latest
-    environment: 
-      name: env1
+
     steps:
-      - name: Print some environment variables
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to selected environment
         run: |
-          echo "Secret Value is stored but not displayed for security reasons."
-          echo "You can use the Secret in your code."
-          echo "API_KEY=${{ secrets.SEC }}"
+          echo "Deploying to ${{ github.event.inputs.environment }}"
+          if [ "${{ github.event.inputs.environment }}" == "test" ]; then
+            echo "Deploying to Test Environment"
+            # 在这里执行你的测试部署逻辑
+            
+          elif [ "${{ github.event.inputs.environment }}" == "dev" ]; then
+            echo "Deploying to Development Environment"
+            # 在这里执行你的开发环境部署逻辑
+            
+          elif [ "${{ github.event.inputs.environment }}" == "pro" ]; then
+            echo "Deploying to Production Environment"
+            # 在这里执行你的生产环境部署逻辑
+          fi
