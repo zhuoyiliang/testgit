@@ -1,37 +1,30 @@
-name: 我的
+name: Example Workflow
 
 on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Choose environment to deploy'
+        description: 'Select environment'
         required: true
         default: 'dev'
+        type: choice
         options:
-          - test
           - dev
           - pro
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - name: Deploy to selected environment
+      - name: Run Build
         run: |
-          echo "Deploying to ${{ github.event.inputs.environment }}"
-          if [ "${{ github.event.inputs.environment }}" == "test" ]; then
-            echo "Deploying to Test Environment"
-            # 在这里执行你的测试部署逻辑
-            
-          elif [ "${{ github.event.inputs.environment }}" == "dev" ]; then
-            echo "Deploying to Development Environment"
-            # 在这里执行你的开发环境部署逻辑
-            
-          elif [ "${{ github.event.inputs.environment }}" == "pro" ]; then
-            echo "Deploying to Production Environment"
-            # 在这里执行你的生产环境部署逻辑
+          echo "Selected environment: ${{ github.event.inputs.environment }}"
+          if [ "${{ github.event.inputs.environment }}" == "pro" ]; then
+            echo "Building for production..."
+          else
+            echo "Building for development..."
           fi
