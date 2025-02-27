@@ -30,7 +30,7 @@ on:
         required: true
 jobs:
   log-the-inputs:
-    runs-on: self-hosted
+    runs-on: iZ7xvbrum50r5ot5d5thqeZ
     steps:
       - run: |
           echo "Log level: $LEVEL"
