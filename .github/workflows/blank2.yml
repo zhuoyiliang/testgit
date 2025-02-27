@@ -50,11 +50,11 @@ jobs:
         if: ${{ inputs.logLevel == 'debug' }}
         run: echo "Debug level logging enabled!3"
       - name: Execute Info Level Action4
-        if: ${{ $LEVEL == 'info' }}
+        if: ${{ '$LEVEL' == 'info' }}
         run: echo "Info level logging enabled!4"
       - name: Execute Warning Level Action5
-        if: ${{ $LEVEL == 'warning' }}
+        if: ${{ '$LEVEL' == 'warning' }}
         run: echo "Warning level logging enabled!5"
       - name: Execute Debug Level Action6
-        if: ${{ $LEVEL == 'debug' }}
+        if: ${{ '$LEVEL' == 'debug' }}
         run: echo "Debug level logging enabled!6"
