@@ -30,7 +30,7 @@ on:
         required: true
 jobs:
   log-the-inputs:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - run: |
           echo "Log level: $LEVEL"
