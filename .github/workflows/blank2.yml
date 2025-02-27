@@ -40,21 +40,21 @@ jobs:
           LEVEL: ${{ inputs.logLevel }}
           TAGS: ${{ inputs.tags }}
           ENVIRONMENT: ${{ inputs.environment }}
-      - name: Execute Info Level Action
+      - name: Execute Info Level Action1
         if: ${{ inputs.logLevel == 'info' }}
         run: echo "Info level logging enabled!1"
-      - name: Execute Warning Level Action
+      - name: Execute Warning Level Action2
         if: ${{ inputs.logLevel == 'warning' }}
         run: echo "Warning level logging enabled!2"
-      - name: Execute Debug Level Action
+      - name: Execute Debug Level Action3
         if: ${{ inputs.logLevel == 'debug' }}
         run: echo "Debug level logging enabled!3"
-      - name: Execute Info Level Action
+      - name: Execute Info Level Action4
         if: ${{ env.LEVEL == 'info' }}
         run: echo "Info level logging enabled!4"
-      - name: Execute Warning Level Action
+      - name: Execute Warning Level Action5
         if: ${{ env.LEVEL == 'warning' }}
         run: echo "Warning level logging enabled!5"
-      - name: Execute Debug Level Action
+      - name: Execute Debug Level Action6
         if: ${{ env.LEVEL == 'debug' }}
         run: echo "Debug level logging enabled!6"
